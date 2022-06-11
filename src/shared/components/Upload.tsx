@@ -1,23 +1,27 @@
-import axios from 'axios';
 import { useRef } from 'react';
+import Server from '../api';
 
 interface UploadTypes {
-  mode: string;
+  mode: 'upload' | 'predict';
 }
 
 export default function Upload(props: UploadTypes) {
+  const s = new Server();
+
   const inputFile = useRef(null);
 
   const onFileUpload = (event: React.FormEvent<HTMLInputElement>) => {
     const target = event.target as HTMLInputElement;
     const selectedFile = target.files![0];
 
-    const formData = new FormData();
-    formData.append('image', selectedFile, selectedFile.name);
-
-    console.log(selectedFile);
-
-    axios.post(`api/${props.mode}`, formData);
+    switch (props.mode) {
+      case 'upload':
+        s.postItem(selectedFile);
+        break;
+      case 'upload':
+        s.getPrediction(selectedFile);
+        break;
+    }
   };
 
   const onButtonClick = () => {
