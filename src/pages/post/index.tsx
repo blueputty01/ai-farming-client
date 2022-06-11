@@ -1,7 +1,5 @@
+import UploadButton from '../../shared/components/Upload';
+
 export default function Post() {
-  return (
-    <div>
-      <button>Upload Info</button>
-    </div>
-  );
+  return <UploadButton></UploadButton>;
 }
