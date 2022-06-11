@@ -1,19 +1,17 @@
-function App() {
+import { Route, Routes } from 'react-router-dom';
+
+import Browse from './pages/browse/index';
+import Diagnose from './pages/diagnose/index';
+import Post from './pages/post/index';
+import Home from './pages/home/index';
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="post" element={<Post />} />
+      <Route path="diagnose" element={<Diagnose />} />
+      <Route path="browse" element={<Browse />} />
+    </Routes>
   );
 }
