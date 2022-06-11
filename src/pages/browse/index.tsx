@@ -1,3 +1,5 @@
+import Item from './Item';
+
 export default function Browse() {
   function Search() {
     return (
@@ -36,7 +38,9 @@ export default function Browse() {
 
   const data = [{}];
 
-  const items = data.map((d) => {});
+  const items = data.map((d) => {
+    return <Item key={d.id} imageURL={''} classification={0} desc={''}></Item>;
+  });
 
   return (
     <div className="flex justify-center pt-10">
