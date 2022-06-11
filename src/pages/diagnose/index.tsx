@@ -6,7 +6,7 @@ export default function Diagnose() {
   return (
     <main className="flex-col text-center">
       <Navigate title="Diagnose"></Navigate>
-      <UploadButton mode={'diagnose'}></UploadButton>
+      <UploadButton mode={'predict'}></UploadButton>
     </main>
   );
 }

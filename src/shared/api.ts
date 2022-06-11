@@ -42,3 +42,5 @@ class Server {
 }
 
 export default Server;
+
+export type {SearchRes};
