@@ -1,19 +1,17 @@
 import axios from 'axios';
-import internal from 'stream';
 
 const url = 'localhost:5000';
 
 interface SearchRes {
-  farmId: Number,
-  imgBase64: Number,
-  farmName: String,
-  itemPrice:  Number,
-  productDescription: String
+  farmId: number;
+  imgBase64: string;
+  farmName: string;
+  itemPrice: number;
+  productDescription: string;
 }
 
 interface PredictionResults {
-  prediction: string,
-  
+  prediction: string;
 }
 
 class Server {
@@ -31,7 +29,7 @@ class Server {
         axios.get(url).then((res) => {
           const data = res.data;
           resolve(
-            data.map((marker):  => ({
+            data.map((marker: SearchRes) => ({
               ...marker,
             }))
           );
@@ -45,4 +43,4 @@ class Server {
 
 export default Server;
 
-export type {SearchRes};
+export type { SearchRes };
