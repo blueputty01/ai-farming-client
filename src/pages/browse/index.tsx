@@ -1,5 +1,9 @@
 export default function Browse() {
-    return <div>
-        <h1>Hi</h1>
-    </div>
+  return (
+    <main>
+      <div className="search">
+        <input type="text" />
+      </div>
+    </main>
+  );
 }

@@ -1,11 +1,10 @@
 import '../../index.css';
+import UploadButton from '../../shared/components/Upload';
 
 export default function Diagnose() {
   return (
     <main>
-      <button type="button" className="button button-blue">
-        Upload Image
-      </button>
+      <UploadButton></UploadButton>;
     </main>
   );
 }
