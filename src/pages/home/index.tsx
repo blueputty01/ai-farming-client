@@ -1,26 +1,29 @@
 import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
-  const navigate = useNavigate();
   return (
-    <div>
-      <div id="outer">
-        <h1>Hi, welcome to</h1>
-      </div>
-      <div id="outer">
-        <h1>LocalFoods</h1>
-      </div>
-      <div id="outer">
-        <button className="button" onClick={() => navigate('browse')}>
-          Browse
-        </button>
-        <button className="button" onClick={() => navigate('post')}>
-          Add Stuff
-        </button>
-        <button className="button" onClick={() => navigate('diagnose')}>
-          Diagnose
-        </button>
-      </div>
-    </div>
+    <main>
+      <h1>Hi, welcome to</h1>
+      <h1>LocalFoods</h1>
+      <HomeButton page={'post'} desc={'Add'}></HomeButton>
+      <HomeButton page={'browse'} desc={'Browse'}></HomeButton>
+      <HomeButton page={'diagnose'} desc={'Diagnose'}></HomeButton>
+    </main>
+  );
+}
+
+interface ButtonProps {
+  page: string;
+  desc: string;
+}
+
+function HomeButton(props: ButtonProps) {
+  const navigate = useNavigate();
+  const home =
+    'button bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded';
+  return (
+    <button className={home} onClick={() => navigate(props.page)}>
+      {props.desc}
+    </button>
   );
 }
