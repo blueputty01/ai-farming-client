@@ -2,12 +2,14 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
   return (
-    <main>
+    <main className="flex-1 wid w-9/10 text-center space-y-3">
       <h1>Hi, welcome to</h1>
-      <h1>LocalFoods</h1>
-      <HomeButton page={'post'} desc={'Add'}></HomeButton>
-      <HomeButton page={'browse'} desc={'Browse'}></HomeButton>
-      <HomeButton page={'diagnose'} desc={'Diagnose'}></HomeButton>
+      <h1 className="text-xl">LocalFoods</h1>
+      <nav className="flex space-x-4">
+        <HomeButton page={'post'} desc={'Add'}></HomeButton>
+        <HomeButton page={'browse'} desc={'Browse'}></HomeButton>
+        <HomeButton page={'diagnose'} desc={'Diagnose'}></HomeButton>
+      </nav>
     </main>
   );
 }
