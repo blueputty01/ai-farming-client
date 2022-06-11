@@ -5,10 +5,11 @@
     "node": true,
     "jest": true
   },
-  "extends": ["airbnb", "prettier"],
+  "extends": ["airbnb", "airbnb-typescript", "prettier"],
   "parserOptions": {
     "ecmaVersion": 2016,
     "sourceType": "module",
+    "project": "tsconfig.json",
     "ecmaFeatures": {
       "experimentalObjectRestSpread": true,
       "jsx": true
@@ -25,5 +26,11 @@
       { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
     ]
   },
-  "ignorePatterns": ["/build", "/node_modules", "/config", "tailwind.config.js"]
+  "ignorePatterns": [
+    "/build",
+    "/node_modules",
+    "/config",
+    "tailwind.config.js",
+    "postcss.config.js"
+  ]
 }
