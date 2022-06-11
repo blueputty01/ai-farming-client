@@ -3,8 +3,8 @@ import UploadButton from '../../shared/components/Upload';
 
 export default function Diagnose() {
   return (
-    <main>
-      <UploadButton></UploadButton>;
+    <main className="flex-col text-center">
+      <UploadButton mode={'diagnose'}></UploadButton>
     </main>
   );
 }
