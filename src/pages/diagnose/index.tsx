@@ -6,7 +6,7 @@ export default function Diagnose() {
   return (
     <main className="flex-col text-center">
       <Navigate title="Diagnose"></Navigate>
-      <h1>
+      <h1 className="pb-10 5xl">
         Upload an image of the fruit or its leaves in order to diagnose any
         potential diseases
       </h1>
