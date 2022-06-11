@@ -1,16 +1,18 @@
 import axios from 'axios';
+import internal from 'stream';
 
 const url = 'localhost:5000';
 
 interface SearchRes {
-  imageURL: string,
-  itemHealth: string,
-  
+  farmId: Number,
+  imgBase64: Number,
+  farmName: String,
+  itemPrice:  Number,
+  productDescription: String
 }
 
 interface PredictionResults {
-  imageURL: string,
-  itemHealth: string,
+  prediction: string,
   
 }
 
