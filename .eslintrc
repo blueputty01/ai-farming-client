@@ -19,7 +19,11 @@
   "rules": {
     "no-param-reassign": 0,
     "react/jsx-uses-react": "off",
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-filename-extension": [
+      2,
+      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+    ]
   },
   "ignorePatterns": ["/build", "/node_modules", "/config", "tailwind.config.js"]
 }
