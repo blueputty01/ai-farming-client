@@ -32,6 +32,7 @@ export default function Upload(props: UploadTypes) {
         ref={inputFile}
         className="hidden"
         onChange={onFileUpload}
+        accept=".jpeg,.jpg"
       />
       <button onClick={onButtonClick} className="button button-blue">
         Upload Image

@@ -5,5 +5,9 @@ interface PageType {
 }
 
 export default function Upload(props: PageType) {
-  return <div>{props.title}</div>;
+  return (
+    <div className="p-5">
+      <h1 className="font-bold">{props.title}</h1>
+    </div>
+  );
 }
