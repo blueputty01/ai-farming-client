@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = 'localhost:5000';
+const url = 'http://localhost:5000';
 
 interface SearchRes {
   farmId: number;
@@ -15,12 +15,17 @@ interface PredictionResults {
 }
 
 class Server {
-  getPrediction(file: File) {
-    return axios.post(`${url}/getPrediction`, file);
+  getPrediction(file: FormData): string {
+    console.log(`${url}/getPrediction`);
+    return axios.post(`${url}/getPrediction`, file, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    }) as unknown as string;
   }
 
-  postItem(file: File) {
-    return axios.post(`${url}/upload`, file);
+  postItem(file: FormData): string {
+    return axios.post(`${url}/upload`, file) as unknown as string;
   }
 
   search(query: string) {
