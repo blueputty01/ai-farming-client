@@ -11,22 +11,13 @@ export default function Home() {
         <h1>LocalFoods</h1>
       </div>
       <div id="outer">
-        <button
-          className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-          onClick={() => navigate('browse')}
-        >
+        <button className="button" onClick={() => navigate('browse')}>
           Browse
         </button>
-        <button
-          className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-          onClick={() => navigate('post')}
-        >
+        <button className="button" onClick={() => navigate('post')}>
           Add Stuff
         </button>
-        <button
-          className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-          onClick={() => navigate('diagnose')}
-        >
+        <button className="button" onClick={() => navigate('diagnose')}>
           Diagnose
         </button>
       </div>
