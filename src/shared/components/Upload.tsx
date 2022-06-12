@@ -3,6 +3,7 @@ import Server from '../api';
 
 interface UploadTypes {
   mode: 'upload' | 'predict';
+  className?: string;
 }
 
 export default function Upload(props: UploadTypes) {
@@ -41,7 +42,7 @@ export default function Upload(props: UploadTypes) {
   };
 
   return (
-    <main>
+    <div className={props.className}>
       <input
         type="file"
         id="file"
@@ -54,6 +55,6 @@ export default function Upload(props: UploadTypes) {
         Upload Image
       </button>
       <div className="result">{res}</div>
-    </main>
+    </div>
   );
 }

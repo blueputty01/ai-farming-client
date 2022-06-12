@@ -5,8 +5,8 @@ export default function Post() {
   return (
     <main>
       <Navigate title="Upload Plant's Leaf and Vegetable/Fruit"></Navigate>{' '}
-      <UploadButton className="pb-10" mode={'predict'}></UploadButton>
-      <UploadButton mode={'upload'}></UploadButton>
+      <UploadButton className="p-1" mode={'predict'}></UploadButton>
+      <UploadButton className="p-1" mode={'upload'}></UploadButton>
     </main>
   );
 }
