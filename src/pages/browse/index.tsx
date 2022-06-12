@@ -52,21 +52,22 @@ export default function Browse() {
   // }
 
   function Search() {
-    const getInput = () => {
-      const input = event.target.value;
-      search(input);
-    };
+    // const getInput = (event: ) => {
+    //   const input = event.target.value;
+    //   search(input);
+    // };
 
     return (
       <div className="input-group relative flex items-stretch w-full mb-4">
-        <input
-          type="text"
-          className="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-          placeholder="Search"
-          aria-label="Search"
-          aria-describedby="button-addon2"
-          onChange={getInput}
-        ></input>
+        <form onSubmit={search}>
+          <input
+            type="text"
+            className="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+            placeholder="Search"
+            aria-label="Search"
+            aria-describedby="button-addon2"
+          ></input>
+        </form>
       </div>
     );
   }
@@ -78,4 +79,7 @@ export default function Browse() {
       </div>
     </div>
   );
+}
+function handleChange(event: Event | undefined) {
+  throw new Error('Function not implemented.');
 }
