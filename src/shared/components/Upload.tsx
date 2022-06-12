@@ -1,17 +1,12 @@
-import { useRef, useState } from 'react';
-import Server from '../api';
+import { useRef } from 'react';
 
 interface UploadTypes {
-  mode: 'upload' | 'predict';
   className?: string;
+  fileHandler: (data: FormData) => void;
 }
 
 export default function Upload(props: UploadTypes) {
-  const s = new Server();
-
   const inputFile = useRef(null);
-
-  const [res, setRes] = useState({ data: '' });
 
   const onFileUpload = async (event: React.FormEvent<HTMLInputElement>) => {
     const target = event.target as HTMLInputElement;
@@ -20,21 +15,7 @@ export default function Upload(props: UploadTypes) {
     const data = new FormData();
     data.append('file', selectedFile, selectedFile.name);
 
-    let res = 'none';
-
-    switch (props.mode) {
-      case 'upload':
-        res = await s.postItem(data);
-        break;
-      case 'predict':
-        res = await s.getLeaf(data);
-        break;
-      default:
-        res = 'none';
-    }
-
-    setRes(res);
-    console.log(res);
+    props.fileHandler(data);
   };
 
   const onButtonClick = () => {
@@ -54,7 +35,6 @@ export default function Upload(props: UploadTypes) {
       <button onClick={onButtonClick} className="button button-blue">
         Upload Image
       </button>
-      <div className="result">{res.data.toString()}</div>
     </div>
   );
 }

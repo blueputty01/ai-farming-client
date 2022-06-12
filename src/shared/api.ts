@@ -19,15 +19,15 @@ const getPrediction = (file: FormData, api: string) => {
     headers: {
       'Content-Type': 'multipart/form-data',
     },
-  }) as unknown as string;
+  });
 };
 
 class Server {
-  getLeaf(file: FormData): string {
+  getLeaf(file: FormData): Promise<any> {
     return getPrediction(file, 'leaves');
   }
 
-  getFruit(file: FormData): string {
+  getFruit(file: FormData): Promise<any> {
     return getPrediction(file, 'fruit');
   }
 
