@@ -6,8 +6,12 @@ import Server from '../../shared/api';
 export default function Post() {
   const s = new Server();
 
-  const [classify, setClassify] = useState({ data: '' });
-  const [diagnosis, setDiagnosis] = useState({ data: '' });
+  const [classify, setClassify] = useState({
+    data: 'No classification. Please upload an image.',
+  });
+  const [diagnosis, setDiagnosis] = useState({
+    data: 'No classification. Please upload an image.',
+  });
 
   const classifyHandler = async (data: FormData) => {
     const r = await s.getLeaf(data);
