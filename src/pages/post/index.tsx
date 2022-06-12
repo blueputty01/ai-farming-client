@@ -20,7 +20,7 @@ export default function Post() {
   };
 
   return (
-    <main className="flex">
+    <main className="flex-col content-center text-center">
       <Navigate title="Post Item"></Navigate>
       <h1>Upload Fruit</h1>
       <UploadButton
