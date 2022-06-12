@@ -10,10 +10,6 @@ interface SearchRes {
   productDescription: string;
 }
 
-interface PredictionResults {
-  prediction: string;
-}
-
 const getPrediction = (file: FormData, api: string) => {
   return axios.post(`${url}/api/${api}`, file, {
     headers: {
