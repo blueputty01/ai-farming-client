@@ -11,7 +11,7 @@ export default function Upload(props: UploadTypes) {
 
   const inputFile = useRef(null);
 
-  const [res, setRes] = useState('');
+  const [res, setRes] = useState({ data: '' });
 
   const onFileUpload = async (event: React.FormEvent<HTMLInputElement>) => {
     const target = event.target as HTMLInputElement;
@@ -27,7 +27,7 @@ export default function Upload(props: UploadTypes) {
         res = await s.postItem(data);
         break;
       case 'predict':
-        res = await s.getPrediction(data);
+        res = await s.getLeaf(data);
         break;
       default:
         res = 'none';
@@ -54,7 +54,7 @@ export default function Upload(props: UploadTypes) {
       <button onClick={onButtonClick} className="button button-blue">
         Upload Image
       </button>
-      <div className="result">{res}</div>
+      <div className="result">{res.data.toString()}</div>
     </div>
   );
 }

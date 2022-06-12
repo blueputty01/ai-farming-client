@@ -14,14 +14,21 @@ interface PredictionResults {
   prediction: string;
 }
 
+const getPrediction = (file: FormData, api: string) => {
+  return axios.post(`${url}/api/${api}`, file, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  }) as unknown as string;
+};
+
 class Server {
-  getPrediction(file: FormData): string {
-    console.log(`${url}/getPrediction`);
-    return axios.post(`${url}/getPrediction`, file, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    }) as unknown as string;
+  getLeaf(file: FormData): string {
+    return getPrediction(file, 'leaves');
+  }
+
+  getFruit(file: FormData): string {
+    return getPrediction(file, 'fruit');
   }
 
   postItem(file: FormData): string {
