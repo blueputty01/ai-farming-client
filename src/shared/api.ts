@@ -24,7 +24,7 @@ class Server {
   }
 
   getFruit(file: FormData): Promise<any> {
-    return getPrediction(file, 'fruit');
+    return getPrediction(file, 'classify');
   }
 
   postItem(file: FormData): string {

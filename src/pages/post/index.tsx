@@ -3,31 +3,18 @@ import Navigate from '../../shared/components/Navigation';
 import { useState } from 'react';
 import Server from '../../shared/api';
 import Diagnosis from '../diagnose/Diagnosis';
+import Process from '../../shared/components/Process';
 
 export default function Post() {
   const s = new Server();
 
-  const [classify, setClassify] = useState('none');
-
-  const loadClassify = () => {
-    setClassify('loading...');
-  };
-
-  const classifyHandler = async (data: FormData) => {
-    const r = await s.getFruit(data);
-    setClassify(r.data);
-  };
-
   return (
-    <main className="flex-col content-center text-center">
-      <Navigate title="Post Item"></Navigate>
-      <h1>Upload Fruit</h1>
-      <UploadButton
-        className="p-1"
-        responseHandler={classifyHandler}
-        uploadHandler={loadClassify}
-      ></UploadButton>
-      <div className="result">{classify}</div>
+    <main className="flex-col content-center text-center space-y-4">
+      <Process
+        title={'Plant classification'}
+        desc={'Upload image of fruit/vegetable'}
+        apiCall={s.getFruit}
+      ></Process>
       <Diagnosis></Diagnosis>
     </main>
   );
