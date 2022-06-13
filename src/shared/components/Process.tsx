@@ -1,5 +1,4 @@
 import UploadButton from './Upload';
-import Server from '../api';
 import { useState } from 'react';
 import Navigation from './Navigation';
 
@@ -7,6 +6,7 @@ interface ProcessProps {
   title: string;
   desc: string;
   apiCall: Function;
+  resMap?: { [key: number]: string };
 }
 
 export default function Process(props: ProcessProps) {
@@ -25,6 +25,12 @@ export default function Process(props: ProcessProps) {
     setRes(-1);
   };
 
+  let lookup: string = res.toString();
+
+  if (typeof props.resMap !== 'undefined') {
+    lookup = props.resMap[res];
+  }
+
   return (
     <div className="flex-col space-y-2 p-8 text-center  max-w-sm rounded-lg overflow-hidden shadow-lg border-gray-200 border-2">
       <Navigation title={props.title}></Navigation>
@@ -41,7 +47,7 @@ export default function Process(props: ProcessProps) {
         ) : res == -1 ? (
           'Waiting...'
         ) : (
-          res
+          lookup
         )}
       </div>
     </div>
