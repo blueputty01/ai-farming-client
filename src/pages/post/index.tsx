@@ -2,25 +2,20 @@ import UploadButton from '../../shared/components/Upload';
 import Navigate from '../../shared/components/Navigation';
 import { useState } from 'react';
 import Server from '../../shared/api';
+import Diagnosis from '../diagnose/Diagnosis';
 
 export default function Post() {
   const s = new Server();
 
-  const [classify, setClassify] = useState({
-    data: 'No classification. Please upload an image.',
-  });
-  const [diagnosis, setDiagnosis] = useState({
-    data: 'No classification. Please upload an image.',
-  });
+  const [classify, setClassify] = useState('none');
 
-  const classifyHandler = async (data: FormData) => {
-    const r = await s.getLeaf(data);
-    setClassify(r);
+  const loadClassify = () => {
+    setClassify('loading...');
   };
 
-  const diagnoseHandler = async (data: FormData) => {
-    const r = await s.getLeaf(data);
-    setDiagnosis(r);
+  const classifyHandler = async (data: FormData) => {
+    const r = await s.getFruit(data);
+    setClassify(r.data);
   };
 
   return (
@@ -29,15 +24,11 @@ export default function Post() {
       <h1>Upload Fruit</h1>
       <UploadButton
         className="p-1"
-        fileHandler={classifyHandler}
+        responseHandler={classifyHandler}
+        uploadHandler={loadClassify}
       ></UploadButton>
-      <div className="result">{classify.data}</div>
-      <h1>Upload Leaf for Diagnosis</h1>
-      <UploadButton
-        className="p-1"
-        fileHandler={diagnoseHandler}
-      ></UploadButton>
-      <div className="result">{diagnosis.data}</div>
+      <div className="result">{classify}</div>
+      <Diagnosis></Diagnosis>
     </main>
   );
 }
