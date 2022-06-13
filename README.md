@@ -1,4 +1,6 @@
-# AI Farming 👩‍🌾 | Server Side
+# AI Farming 👩‍🌾 | Client Side
+
+![Demonstration Screenshot](/demo.png?raw=true 'Demonstration')
 
 ## ⚡ Setup
 
