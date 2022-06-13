@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 
 import Browse from './pages/browse/index';
-import Diagnose from './pages/diagnose/index';
+import Diagnose from './pages/diagnose/Diagnosis';
 import Post from './pages/post/index';
 import Home from './pages/home/index';
 

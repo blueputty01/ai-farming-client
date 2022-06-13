@@ -8,10 +8,9 @@ export default function Home() {
       <div className="inline">
         <img src={i} alt="..." height={600} width={600}></img>
       </div>
-      {/* <h1 className="text-7xl">LocalFoods</h1> */}
       <nav className="flex justify-center space-x-4">
         <HomeButton page={'post'} desc={'Add'}></HomeButton>
-        <HomeButton page={'browse'} desc={'Browse'}></HomeButton>
+        {/* <HomeButton page={'browse'} desc={'Browse'}></HomeButton> */}
         <HomeButton page={'diagnose'} desc={'Diagnose'}></HomeButton>
       </nav>
     </main>

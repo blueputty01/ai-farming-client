@@ -2,20 +2,22 @@ import { useRef } from 'react';
 
 interface UploadTypes {
   className?: string;
-  fileHandler: (data: FormData) => void;
+  uploadHandler: () => void;
+  responseHandler: (data: FormData) => void;
 }
 
 export default function Upload(props: UploadTypes) {
   const inputFile = useRef(null);
 
   const onFileUpload = async (event: React.FormEvent<HTMLInputElement>) => {
+    props.uploadHandler();
     const target = event.target as HTMLInputElement;
     const selectedFile = target.files![0];
 
     const data = new FormData();
     data.append('file', selectedFile, selectedFile.name);
 
-    props.fileHandler(data);
+    props.responseHandler(data);
   };
 
   const onButtonClick = () => {
