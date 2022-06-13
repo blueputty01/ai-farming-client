@@ -2,7 +2,7 @@ import '../../index.css';
 import UploadButton from '../../shared/components/Upload';
 import Server from '../../shared/api';
 import { useState } from 'react';
-import DiagnosticBar from '../../shared/components/DiagnosticBar';
+import Navigation from '../../shared/components/Navigation';
 
 export default function Diagnose() {
   const s = new Server();
@@ -22,8 +22,9 @@ export default function Diagnose() {
   };
 
   return (
-    <div className="flex-col text-center">
-      <h1 className="pb-10 5xl">
+    <div className="flex-col text-center p-4">
+      <Navigation title={'Disease Detection'}></Navigation>
+      <h1 className="">
         Upload an image of leaves in order to diagnose any potential diseases
       </h1>
       <UploadButton
@@ -32,14 +33,12 @@ export default function Diagnose() {
       ></UploadButton>
 
       <div className="pt-10">
-        <h1 className="font-bold">Results</h1>
-        {res == -2 ? (
-          'Please upload an image'
-        ) : res == -1 ? (
-          'Waiting...'
-        ) : (
-          <DiagnosticBar health={res / 37}></DiagnosticBar>
-        )}
+        <h1 className="font-bold">Disease Result:</h1>
+        {res == -2
+          ? 'None, please upload an image'
+          : res == -1
+          ? 'Waiting...'
+          : res}
       </div>
     </div>
   );
